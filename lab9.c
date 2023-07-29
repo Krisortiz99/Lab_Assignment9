@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+//kris: the chain needs to be printed
 // RecordType
 struct RecordType
 {
@@ -11,13 +11,15 @@ struct RecordType
 // Fill out this structure
 struct HashType
 {
-
+	int count;
+	int item;
 };
 
 // Compute the hash function
 int hash(int x)
 {
-
+	int i = x % 15;
+	return i;
 }
 
 // parses input file to an integer array
@@ -80,6 +82,7 @@ void displayRecordsInHash(struct HashType *pHashArray, int hashSz)
 	for (i=0;i<hashSz;++i)
 	{
 		// if index is occupied with any records, print all
+		printf("%d ", pHashArray);
 	}
 }
 
@@ -91,4 +94,8 @@ int main(void)
 	recordSz = parseData("input.txt", &pRecords);
 	printRecords(pRecords, recordSz);
 	// Your hash implementation
+	for(int i = 0; i < 15; i++){
+		hash(pRecords);
+	}
+	displayRecordsInHash(pRecords, 15);
 }
